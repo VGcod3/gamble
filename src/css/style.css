@@ -1,0 +1,357 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+div {
+  box-sizing: border-box !important;
+}
+
+.els {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: auto;
+  max-width: 768px;
+  z-index: 4;
+}
+
+.els1 {
+  top: 0;
+}
+
+.els2 {
+  bottom: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100% !important;
+  overflow: hidden !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background-image: url("../img/bg (1).jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.wrapper .logo {
+  width: 100%;
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
+.wrapper .logo img {
+  width: 60%;
+  margin-bottom: 2vh;
+}
+.wrapper .logo h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #0079ca;
+}
+.wrapper #wheel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 12vh;
+  z-index: 2;
+  max-width: 400px;
+  overflow: hidden;
+}
+.wrapper #wheel .button {
+  position: absolute;
+  left: auto;
+  bottom: auto;
+  width: 80px;
+  z-index: 100;
+  cursor: pointer;
+}
+.wrapper #wheel .marker {
+  justify-self: start;
+  position: absolute;
+  left: auto;
+  bottom: 48%;
+  width: 27%;
+  z-index: 3;
+}
+.wrapper .man {
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  width: 120px;
+  z-index: 3;
+}
+.wrapper .man img {
+  width: 100%;
+}
+.wrapper .woman {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  z-index: 3;
+}
+.wrapper .woman img {
+  width: 100%;
+}
+
+.popup-left {
+  left: 5%;
+  bottom: 45%;
+}
+
+.popup-right {
+  bottom: 55%;
+  right: 5%;
+}
+
+.social-wrapper {
+  padding: 25px;
+  padding-bottom: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  overflow: auto;
+  -webkit-animation: all 3s ease;
+          animation: all 3s ease;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+  background-color: rgba(13, 13, 13, 0.6);
+  z-index: 10;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+}
+.social-wrapper .modal-form {
+  background-color: #160D2A;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.social-wrapper .modal-form .form-title {
+  background-color: #FD2400;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-wrapper .modal-form .form-title span {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+.social-wrapper .modal-form .bonus {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.social-wrapper .modal-form .bonus h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FD2400;
+}
+.social-wrapper .modal-form .bonus p {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+.social-wrapper .modal-form .socials {
+  display: flex;
+  justify-content: space-between;
+}
+.social-wrapper .modal-form .socials a {
+  padding: 15px;
+  flex: 1;
+}
+.social-wrapper .modal-form .socials a img {
+  height: 100%;
+  width: 100%;
+}
+.social-wrapper .modal-form .some-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.social-wrapper .modal-form .some-text hr {
+  background-color: #3D334C;
+  width: 100%;
+  opacity: 0.5;
+  margin: 0 15px;
+}
+.social-wrapper .modal-form .some-text h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.social-wrapper .modal-form .downloads {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.social-wrapper .modal-form .downloads a {
+  padding: 10px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  z-index: 7;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+  background-color: #39C49B;
+  border-radius: 20px;
+  padding: 5%;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+  -webkit-animation: all 3s ease;
+          animation: all 3s ease;
+  box-shadow: #2d9576 15px 15px 40px;
+}
+.popup span {
+  text-align: center;
+  font-size: large;
+  font-weight: 400;
+}
+.popup hr {
+  width: 100%;
+  color: white;
+  opacity: 0.5;
+  margin: 5px;
+}
+.popup .number {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  -webkit-animation: all 3s ease;
+          animation: all 3s ease;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    background-image: url("../img/bg.jpg");
+  }
+}
+.blur {
+  -webkit-animation: blur 10s;
+          animation: blur 10s;
+}
+
+@-webkit-keyframes blur {
+  0% {
+    filter: blur(1.5px);
+  }
+  80% {
+    filter: blur(1.5px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(1.5px);
+  }
+  80% {
+    filter: blur(1.5px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+@media screen and (min-width: 468px) {
+  .els {
+    display: none;
+  }
+}
+#phone, .iti {
+  width: 100% !important;
+  margin-bottom: 15px;
+}
+
+.hide {
+  display: none !important;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.noScroll {
+  overflow: hidden;
+}
