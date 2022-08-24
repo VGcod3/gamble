@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamble</title>
+    <!-- <link rel="stylesheet" href="src/css/reset.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="src/css/style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+    </style>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden !important;
+        }
+
+        div {
+            box-sizing: border-box !important;
+        }
+
+        .els {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            left: auto;
+            max-width: 768px;
+            z-index: 4;
+        }
+
+        .els1 {
+            top: 0;
+        }
+
+        .els2 {
+            bottom: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100% !important;
+            overflow: hidden !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            /* background-image: url('src/img/bg.jpg'); */
+            background-image: url('https://i.ibb.co/YWpWQCz/bg.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .wrapper .logo {
+            width: 100%;
+            position: absolute;
+            top: 6vh;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 4;
+        }
+
+        .wrapper .logo img {
+            width: 60%;
+            margin-bottom: 1vh;
+        }
+
+        .wrapper .logo h1 {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 33px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .wrapper #wheel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 12vh;
+            z-index: 2;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .wrapper #wheel .button {
+            position: absolute;
+            left: auto;
+            bottom: auto;
+            width: 80px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        .wrapper #wheel .marker {
+            justify-self: start;
+            position: absolute;
+            left: auto;
+            bottom: 48%;
+            width: 27%;
+            z-index: 3;
+        }
+
+        .wrapper .man {
+            position: absolute;
+            bottom: 0;
+            left: -20px;
+            width: 120px;
+            z-index: 3;
+        }
+
+        .wrapper .man img {
+            width: 100%;
+        }
+
+        .wrapper .woman {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            z-index: 3;
+        }
+
+        .wrapper .woman img {
+            width: 100%;
+        }
+
+        .popup-left {
+            left: 2%;
+            bottom: 10%;
+        }
+
+        .popup-right {
+            right: 2%;
+            bottom: 10%;
+        }
+
+        .social-wrapper {
+            padding: 25px;
+            padding-bottom: 100px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            visibility: hidden;
+            opacity: 0;
+            overflow: auto;
+            -webkit-animation: all 3s ease;
+            animation: all 3s ease;
+            -webkit-animation-delay: 250ms;
+            animation-delay: 250ms;
+            background-color: rgba(13, 13, 13, 0.6);
+            z-index: 10;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            padding: 25px;
+        }
+
+        .social-wrapper .modal-form {
+            background-color: #160D2A;
+            width: 100%;
+            box-sizing: border-box;
+            padding-bottom: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .social-wrapper .modal-form .form-title {
+            background-color: #FD2400;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-wrapper .modal-form .form-title span {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 27px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .social-wrapper .modal-form .bonus {
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .social-wrapper .modal-form .bonus h1 {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 33px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FD2400;
+        }
+
+        .social-wrapper .modal-form .bonus p {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .social-wrapper .modal-form .socials {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-wrapper .modal-form .socials a {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .social-wrapper .modal-form .socials a img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .social-wrapper .modal-form .some-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .social-wrapper .modal-form .some-text hr {
+            background-color: #3D334C;
+            width: 100%;
+            opacity: 0.5;
+            margin: 0 15px;
+        }
+
+        .social-wrapper .modal-form .some-text h1 {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 33px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .social-wrapper .modal-form .downloads {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .social-wrapper .modal-form .downloads a {
+            padding: 10px;
+        }
+
+        .contSpins {
+            position: absolute;
+            left: 3%;
+            bottom: 55%;
+            z-index: 5;
+            background-color: rgba(40, 144, 242, 0.8509803922);
+            color: white;
+            border-radius: 15px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contSpins .rodadas {
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            font-size: 22px;
+            color: #fff;
+            opacity: 1;
+        }
+
+        .contSpins .rodadasCnt {
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .popup {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            z-index: 7;
+            position: fixed;
+            max-width: 47%;
+            opacity: 0;
+            visibility: hidden;
+            color: white;
+
+            background-color: rgba(57, 196, 155, 0.8509803922);
+            border-radius: 15px;
+            padding: 3%;
+            -webkit-animation-delay: 250ms;
+            animation-delay: 250ms;
+            -webkit-animation: all 3s ease;
+            animation: all 3s ease;
+            box-shadow: #2d9576 15px 15px 40px;
+        }
+
+        .popup span {
+            text-align: center;
+            font-size: large;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .popup hr {
+            width: 100%;
+            background-color: white;
+            height: 1px;
+            opacity: 0.5;
+            margin: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            border: none;
+        }
+
+        .popup .number {
+            font-size: x-large;
+            font-weight: 700;
+        }
+
+        .show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            -webkit-animation: all 3s ease;
+            animation: all 3s ease;
+            -webkit-animation-delay: 250ms;
+            animation-delay: 250ms;
+        }
+
+        @media screen and (max-width: 768px) {
+            .wrapper {
+                /* background-image: url("src/img/bg-mobile.jpg"); */
+                background-image: url("https://i.ibb.co/7g9QHJc/bg-mobile.jpg");
+            }
+        }
+
+        .blur {
+            -webkit-animation: blur 10s;
+            animation: blur 10s;
+        }
+
+        @-webkit-keyframes blur {
+            0% {
+                filter: blur(1.5px);
+            }
+
+            80% {
+                filter: blur(1.5px);
+            }
+
+            100% {
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes blur {
+            0% {
+                filter: blur(1.5px);
+            }
+
+            80% {
+                filter: blur(1.5px);
+            }
+
+            100% {
+                filter: blur(0px);
+            }
+        }
+
+        @media screen and (min-width: 468px) {
+            .els {
+                display: none;
+            }
+        }
+
+        #phone,
+        .iti {
+            width: 100% !important;
+            margin-bottom: 15px;
+        }
+
+        .hide {
+            display: none !important;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+
+        .noScroll {
+            overflow: hidden;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="els els1">
+            <!-- <img src="src/img/elements.png" alt="bg"> -->
+            <img src="https://i.ibb.co/tJST2PK/elements.png" alt="bg">
+        </div>
+
+        <div class="els els2">
+            <!-- <img src="src/img/elements2.png" alt="bg"> -->
+            <img src="https://i.ibb.co/fFBYWxK/elements2.png" alt="bg">
+        </div>
+
+        <div class="logo">
+            <!-- <img src="src/img/1x.png" alt="pinup"> -->
+            <img src="https://i.ibb.co/qyz0XsT/1x.png" alt="1win">
+            <h1>Gire a roda e receba o bônus!</h1>
+        </div>
+
+
+        <div id="wheel">
+
+            <!-- <img class="marker" src="./src/img/marker.png" /> -->
+            <img class="marker" src="https://i.ibb.co/XsDRrq1/marker.png" />
+            <!-- <img class="wheel" src="./src/img/wheel.png" /> -->
+            <img class="wheel" src="https://i.ibb.co/J7cKY1L/wheel.png" />
+            <!-- <img class="button" src="./src/img/button.png" /> -->
+            <img class="button" src="https://i.ibb.co/KGw7MH2/button.png" />
+
+        </div>
+
+        <div class="man">
+            <!-- <img src="./src/img/man.png" alt=""> -->
+            <img src="https://i.ibb.co/zVWHcyG/man.png" alt="">
+        </div>
+        <div class="woman">
+            <!-- <img src="./src/img/woman.png" alt=""> -->
+            <img src="https://i.ibb.co/Fh4V30z/woman.png" alt="">
+        </div>
+    </div>
+
+    <div class="popup-left popup ">
+        <span></span>
+        <hr>
+        <!-- <span>TRY AGAIN</span> -->
+    </div>
+
+    <div class="popup-right popup ">
+        <span></span>
+        <hr>
+        <!-- <span>TRY AGAIN</span> -->
+    </div>
+
+    <div class="contSpins">
+        <span class="rodadas">Rodadas</span>
+        <span class="rodadasCnt">grátis: 2</span>
+    </div>
+
+
+    <div class="social-wrapper">
+        <div class="modal-form ">
+            <div class="form-title">
+                <span>Registrar</span>
+            </div>
+            <div class="bonus">
+                <h1>500% para o depósito</h1>
+                <p>+250 rodadas grátis</p>
+            </div>
+
+            <div class="bonus">
+                <h1>Baixe o aplicativo e recebe o bônus!</h2>
+            </div>
+
+
+            <div class="downloads">
+                <a href="https://play.google.com/store/apps/details?id=com.ramses.ra.egypt">
+                    <!-- <img src="src/img/google-play-badge.png" alt=""> -->
+                    <img src="https://i.ibb.co/3d59JBW/google-play-badge.png" alt="">
+                </a>
+
+            </div>
+
+            <div class="some-text">
+                <h1>BONUS 1000R$</h1>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const wheel = document.querySelector('.wheel')
+            const startButton = document.querySelector('.button')
+
+            const body = document.querySelector('.wrapper');
+
+            const inputWrapper = document.querySelector('.input-wrapper')
+            const emailWrapper = document.querySelector('.email-wrapper')
+
+            const modalSocial = document.querySelector('.social-wrapper')
+            const spinsDisplay = document.querySelector('.rodadasCnt')
+            // const modalForm = document.querySelector('.modal-wrapper');
+
+
+
+            let deg = 0;
+            let spins = 2;
+            let zoneSize = 36; // deg
+
+            spinsDisplay.textContent = `grátis: ${spins}`;
+
+            // Counter clockwise
+            const symbolSegments = {
+                1: "100 rodadas grátis",
+                2: "500% para o depósito",
+                3: "Sem ganho",
+                4: "1000R$",
+                5: "15000R$",
+
+                6: "100 rodadas grátis",
+                7: "500% para o depósito",
+                8: "Sem ganho",
+                9: "250 rodadas grátis",
+                10: "1000R$",
+            }
+
+
+            const wrapNumber = (str) => {
+                let arr = str.split(' ');
+
+                let res = arr.map(word => {
+
+                    if (!isNaN(+word)) {
+                        return `<span class="number">${word}</span>`
+                    }
+                    return word;
+
+                }).join(' ');
+                return res;
+            }
+
+            const showPopup = (winningSymbolNr) => {
+                const left = document.querySelector('.popup-left');
+                const prize = left.querySelector('span')
+
+                left.classList.add('show')
+
+                prize.innerHTML = wrapNumber(symbolSegments[winningSymbolNr])
+            }
+
+            const showSecondPopup = (winningSymbolNr) => {
+                const left = document.querySelector('.popup-right');
+                const prize = left.querySelector('span')
+
+                left.classList.add('show')
+
+                prize.innerHTML = wrapNumber(symbolSegments[winningSymbolNr])
+            }
+
+            const showModal = () => {
+                modalSocial.classList.add('show')
+
+                body.classList.add('noScroll')
+            }
+
+            const handleWin = (actualDeg) => {
+                let winningSymbolNr = Math.ceil(actualDeg / zoneSize);
+
+
+                spins--;
+                spinsDisplay.textContent = `grátis: ${spins}`;
+
+                if (winningSymbolNr == 0) winningSymbolNr = 10;
+
+                switch (spins) {
+                    case 1:
+                        setTimeout(() => showPopup(winningSymbolNr), 300)
+                        break;
+
+                    default:
+                        startButton.removeEventListener('click', spin)
+                        setTimeout(() => {
+                            showSecondPopup(winningSymbolNr)
+                        }, 500)
+                        setTimeout(() => {
+                            showModal()
+                        }, 2500)
+                        break;
+                }
+            }
+
+            const spin = () => {
+                // Disable button during spin
+                startButton.style.pointerEvents = 'none';
+
+                // Calculate a new rotation between 5000 and 10 000
+                // deg = (36 * Math.floor(10 * Math.random())) + 3600;
+                // deg = Math.floor(5000 + Math.random() * 5000);
+                if (spins == 2) {
+                    deg = 36 * 2 + 3600;
+                } else if (spins == 1) {
+                    deg = 36 * 9 + 3600;
+                }
+
+                // Set the transition on the wheel
+                wheel.style.transition = 'all 5s ease-out';
+
+                // Rotate the wheel
+                wheel.style.transform = `rotate(${deg}deg)`;
+
+                // Apply the blur
+                wheel.classList.add('blur');
+            }
+
+            const wheelToUsual = () => {
+                // Remove blur
+                wheel.classList.remove('blur');
+                // Enable button when spin is over
+                startButton.style.pointerEvents = 'auto';
+                // Need to set transition to none as we want to rotate instantly
+                wheel.style.transition = 'none';
+                // Calculate degree on a 360 degree basis to get the "natural" real rotation
+                // Important because we want to start the next spin from that one
+                // Use modulus to get the rest value
+                const actualDeg = deg % 360;
+                // Set the real rotation instantly without animation
+                wheel.style.transform = `rotate(${actualDeg}deg)`;
+                // Calculate and display the winning symbol
+                handleWin(actualDeg);
+            }
+
+            startButton.addEventListener('click', spin);
+
+            wheel.addEventListener('transitionend', wheelToUsual);
+        })();
+    </script>
+</body>
+
+</html>

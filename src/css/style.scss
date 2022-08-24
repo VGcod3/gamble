@@ -83,7 +83,7 @@ img {
 
         img {
             width: 60%;
-            margin-bottom: 2vh;
+            margin-bottom: 1vh;
         }
 
         h1 {
@@ -96,7 +96,7 @@ img {
                 align-items: center;
                 text-align: center;
 
-                color: #0079ca;
+                color: #fff;
         }
     }
 
@@ -174,13 +174,13 @@ img {
 }
 
 .popup-left {
-    left: 5%;
-    bottom: 45%;
+    left: 2%;
+    bottom: 10%;
 }
 
 .popup-right {
-    bottom: 55%;
-    right: 5%;
+    right: 2%;
+    bottom: 10%;
 }
 
 
@@ -347,7 +347,33 @@ img {
     
 } 
 
+.contSpins {
+    position: absolute;
+    left: 3%;
+    bottom: 55%;
+    z-index: 5;
+    background-color: #2890f2d9;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 
+    .rodadas {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: #fff;
+        opacity: 1;
+    }
+    .rodadasCnt {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: #fff;
+        margin-left: 5px;
+    }
+}
 
 
 .popup {
@@ -358,17 +384,17 @@ img {
     z-index: 7;
     position: fixed;
 
-    // max-width: 50%;
+    max-width: 47%;
 
     opacity: 0;
     visibility: hidden;
 
     
-    
     color: white;
-    background-color: #39C49B;
+    background-color: #39C49Bd9;
+
     border-radius: 20px;
-    padding: 5%;
+    padding: 2%;
     
     animation-delay: 250ms;
     animation: all 3s ease;
